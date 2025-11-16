@@ -6,8 +6,13 @@ terraform {
     }
   }
 
-  backend "s3" {
-    key = "learn-terraform-migrate/example/storage/terraform.tfstate"
+  cloud {
+    organization = "Trex_Raptor"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "example_storage"
+      tags    = ["example_storage"]
+    }
   }
 }
 
